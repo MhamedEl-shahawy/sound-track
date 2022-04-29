@@ -1,0 +1,6 @@
+.about_container{
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    height:100%;
+}

@@ -1,4 +1,11 @@
 
+.container_tracks{
+      width: 100%;
+      height: 100%;
+      margin-top: 2em;
+     margin-bottom: 7em;
+     padding-top: 1em;
+}
 .conatiner_list{
      display: flex;
      justify-content: center;
@@ -8,7 +15,6 @@
      margin:1em auto;
      flex-wrap: wrap;
      gap: 1em;
-     margin-bottom: 7em;
 }
 .list{
      width: 20%;
@@ -78,6 +84,56 @@
              mask-composite: exclude;
              animation: move 4s  alternate infinite;  
    }
+.filter{
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin:1em auto;
+  gap: 2em;
+}
+.filter_lists{
+   display: flex;
+   justify-content: flex-start;
+   align-items: center;
+   gap: 2em;
+
+}
+.filter_title{
+    border: 1px solid #3F51BF;
+    background-color: #fff;
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
+    color:#3F51BF;
+    border-radius: 5px;
+    padding: 0.4em 0; 
+    width: 5.3em;
+    font-size: 1.2em;
+    text-align: center;
+    font-weight: bolder;
+    transition: all ease-in-out 0.5s;
+    cursor: pointer;
+}
+.filter_title:hover{
+     background-color: #3F51BF;
+     color: #fff;
+}
+.iconRandom{
+ border: 1px solid #3F51BF;
+ border-radius: 50%;
+ padding: 0.7em 0.8em;
+ font-size: 1.3em;
+ color: #3F51BF;
+ background-color: #fff;
+ box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
+ transition: all ease-in-out 0.5s;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
+.iconRandom:hover{
+  background-color: #3F51BF;
+  color: #fff;
+}
 @keyframes move {
 	0%   { background:linear-gradient(60deg,hsl(269, 85%, 66%),hsl(314, 85%, 66%),hsl(359, 85%, 66%),hsl(44, 85%, 66%),hsl(89, 85%, 66%),hsl(134, 85%, 66%),hsl(179, 85%, 66%))}
   25%  { background: linear-gradient(60deg,hsl(224, 85%, 66%),hsl(269, 85%, 66%),hsl(314, 85%, 66%),hsl(89, 85%, 66%),hsl(179, 85%, 66%)); }

@@ -1,0 +1,28 @@
+.header_container{
+ width: 100%;
+ background-color: #fff;
+ box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
+ padding: 1em;    
+ 
+}
+.nav{
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+.logo_Title{
+   font-size: 2em;
+   font-weight: bolder;
+
+}
+.Header_Lists{
+  display: flex;
+  justify-content: center;
+  gap: 2em; 
+  align-items: center;
+}
+.Header_List{
+  list-style: none;
+}
