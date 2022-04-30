@@ -21,11 +21,11 @@ import {getTrackName} from "../../store/tracks/track";
          </li> 
          <li className={Styles.filter_title}>
 
-            <a>Relax</a>  
+            <a>Rock</a>  
          </li> 
          <li className={Styles.filter_title}>
 
-            <a>Relax</a>  
+            <a>Piano</a>  
          </li> 
         </ul> 
         <a className={Styles.iconRandom} onClick={()=>dispatch(getTrackName({name:tracks[Math.floor(Math.random() * tracks.length)]})) }><FaRandom/></a>
