@@ -1,10 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react'
 import styles from "../../styles/Player.module.css";
-import { MdForward30 } from "react-icons/md";
+import { MdForward30,MdReplay30,MdChatBubbleOutline } from "react-icons/md";
 import { BsArrowRightShort } from "react-icons/bs"
 import { FaPlay,FaPause,FaFastBackward,FaFastForward,FaVolumeUp } from "react-icons/fa"
 import { useSelector,useDispatch } from 'react-redux';
-import {getTrackName} from "../../store/tracks/track"
+import {getTrackName,model} from "../../store/tracks/track"
 const Player = () => {
   // state
   const track = useSelector((state)=> state.trackPlayer.track);
@@ -18,7 +18,7 @@ const Player = () => {
   const audioPlayer = useRef();   // reference our audio component
   const progressBar = useRef();   // reference our progress bar
   const animationRef = useRef();  // reference the animation
-
+ 
   useEffect(() => {
     const seconds = Math.floor(audioPlayer.current.duration);
     setDuration(seconds);
@@ -87,7 +87,7 @@ const Player = () => {
        src={`/tracks/${track}.mp3`}
       preload="metadata"></audio>
       <button className={`${styles.forwardBackward} ${styles.bg}`} onClick={()=>dispatch(getTrackName("previous"))}><FaFastBackward /></button>
-      <button className={styles.forwardBackward} onClick={backThirty}><MdForward30 /></button>
+      <button className={styles.forwardBackward} onClick={backThirty}><MdReplay30 /></button>
       <button  className={styles.playPause}>
         {isPlaying ? <FaPause onClick={()=>togglePlayPause(true)} /> : <FaPlay onClick={()=>togglePlayPause(false)} className={styles.play} />}
       </button>
@@ -105,6 +105,7 @@ const Player = () => {
       {/* duration */}
       <div className={styles.duration}>{(duration && !isNaN(duration)) && calculateTime(duration)}</div>
       <button className={`${styles.forwardBackward} ${styles.bg}`} onClick={()=>mute()}> <FaVolumeUp /></button>
+      <button className={`${styles.forwardBackward} ${styles.bg}`} onClick={()=>dispatch(model())}> <MdChatBubbleOutline /></button>
 
     </div>
   )

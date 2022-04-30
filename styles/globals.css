@@ -10,6 +10,7 @@ body {
    height: 100vh;
    position: relative;
    background-color: #F7F9FD;
+   overflow-x: hidden;
 }
 
 a {
