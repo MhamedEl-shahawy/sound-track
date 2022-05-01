@@ -24,12 +24,79 @@ export default function Track({comments}){
 
 
   export const getStaticPaths = async () => {
-    const supabaseAdmin = createClient(process.env.NEXT_SUPABASE_URL||"",process.env.NEXT_SUPABASE_SECRET||"")
-    const {data} = await supabaseAdmin.from("comments").select("*").order("id");
+    const data = [
+      {
+        "name": "always with me",
+        "key":2
+      },
+      {
+        "name": "ambiant relax",
+        "key":3
+  
+      },
+      {
+        "name": "love song",
+        "key":4
+  
+      },
+      {
+        "name": "childhood memories",
+        "key":6
+      },
+      {
+        "name": "cinematic fairy",
+        "key":9,
+        "type":"piano"
+      },
+      {
+        "name": "fading of the day",
+        "key":10,
+        "type":"pop"
+      },
+      {
+        "name": "forest story acoustic",
+        "key":11,
+        "type":"rock"
+      },
+      {
+        "name": "inspiring cinematic",
+        "key":12,
+        "type":"relax"
+      },
+      {
+        "name": "in the cave",
+        "key":13,
+        "type":"piano"
+      },
+      {
+        "name": "melody of nature",
+        "key":14,
+        "type":"relax"
+      },
+      {
+        "name": "mindfulness relaxation",
+        "key":15,
+        "type":"relax"
+      },
+      {
+        "name": "soft daydream",
+        "key":16,
+        "type":"pop"
+      },
+      {
+        "name": "motivated",
+        "key":17,
+        "type":"rock"
+      },
+      {
+        "name": "stylish lofi chill",
+        "key":18,
+        "type":"rock"
+      }];
   
     const paths = data.map(item => {
       return {
-        params: { track: item.trackName }
+        params: { track: item.name }
       }
     })
   
