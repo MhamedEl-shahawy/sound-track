@@ -107,9 +107,9 @@ export default function Track({comments}){
   }
   
   export const getStaticProps = async ({ params }) => {
-    const supabaseAdmin = createClient(process.env.NEXT_SUPABASE_URL||"",process.env.NEXT_SUPABASE_SECRET||"")
+    const supabaseAdmin = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL||"",process.env.NEXT_PUBLIC_SUPABASE_SECRET||"")
     const {data} = await supabaseAdmin.from("comments").select("*").order("id");
-    const trackFilter = data.filter((track,i)=> track.trackName === params.track)
+    const trackFilter = data.filter((track,i)=> track.trackName === params.track);
     return {
       props: {
            comments: trackFilter,

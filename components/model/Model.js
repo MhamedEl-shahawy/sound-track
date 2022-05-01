@@ -17,7 +17,7 @@ const Model = () => {
 
     const handleComment = async (e)=>{
       e.preventDefault();
-      const supabaseAdmin = createClient(process.env.NEXT_SUPABASE_URL||"",process.env.NEXT_SUPABASE_SECRET||"")
+      const supabaseAdmin = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL||"",process.env.NEXT_PUBLIC_SUPABASE_SECRET||"")
          const { data, error } = await supabaseAdmin
               .from('comments')
               .insert([
