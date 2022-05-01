@@ -4,7 +4,7 @@ import { Provider} from "react-redux";
 import trackPlayer from "../store/tracks/track";
 import Footer from '../components/footer/Footer';
 import Header from '../components/header/Header';
-
+import Layout from '../components/layout/Layout';
 function MyApp({ Component, pageProps }) {
   const store = configureStore({
     reducer:{
@@ -12,9 +12,9 @@ function MyApp({ Component, pageProps }) {
     }
   })
   return <Provider store={store}>
-    <Header/>
+    <Layout>
     <Component {...pageProps} />
-    <Footer/>
+    </Layout>
     </Provider>;
 }
 

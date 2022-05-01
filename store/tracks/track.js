@@ -3,7 +3,7 @@ import {createSlice} from '@reduxjs/toolkit';
   
 const trackPlayer = createSlice({
     name:"trackPlayer",
-    initialState:{track:"",modelStatus:false,trackIndex:"",allTracks: ["always with me","ambiant relax","love song","childhood memories","cinematic fairy","fading of the day","forest story acoustic","inspiring cinematic","in the cave","melody of nature","mindfulness relaxation","motivated","soft daydream","stylish lofi chill"],status: null},
+    initialState:{track:"",time:0,rangeTime:-1,modelStatus:false,trackIndex:"",allTracks: ["always with me","ambiant relax","love song","childhood memories","cinematic fairy","fading of the day","forest story acoustic","inspiring cinematic","in the cave","melody of nature","mindfulness relaxation","motivated","soft daydream","stylish lofi chill"],status: null},
     reducers:{
        getTrackName(state,action){
         if(action.payload === "next"){
@@ -29,11 +29,17 @@ const trackPlayer = createSlice({
        },
        model:(state,action)=>{
            state.modelStatus = !state.modelStatus; 
-       }
+       },
+       calcTarckTime:(state,action)=>{
+        state.time = action.payload; 
+    },
+    changeTimeRange:(state,action)=>{
+        state.rangeTime = action.payload;
+    }
     },
     
     
 });
-export const {getTrackName,model} = trackPlayer.actions;
+export const {getTrackName,model,calcTarckTime,changeTimeRange} = trackPlayer.actions;
 
 export default trackPlayer.reducer;

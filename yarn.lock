@@ -3914,6 +3914,13 @@
     "glob-to-regexp" "^0.4.1"
     "graceful-fs" "^4.1.2"
 
+"waveplayer@^1.2.4":
+  "integrity" "sha512-e7WkACaWJRy2PMzerYxETaBzMc58mqgDnhxcRJjImcr2iDUg7ky4sZpFXB2rURKD5QiLigVac9BYaCs8sL/pOw=="
+  "resolved" "https://registry.npmjs.org/waveplayer/-/waveplayer-1.2.4.tgz"
+  "version" "1.2.4"
+  dependencies:
+    "@babel/runtime" "^7.9.2"
+
 "webidl-conversions@^3.0.0":
   "integrity" "sha1-JFNCdeKnvGvnvIZhHMFq4KVlSHE="
   "resolved" "https://registry.npmjs.org/webidl-conversions/-/webidl-conversions-3.0.1.tgz"

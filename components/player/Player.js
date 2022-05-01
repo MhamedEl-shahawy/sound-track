@@ -4,14 +4,17 @@ import { MdForward30,MdReplay30,MdChatBubbleOutline } from "react-icons/md";
 import { BsArrowRightShort } from "react-icons/bs"
 import { FaPlay,FaPause,FaFastBackward,FaFastForward,FaVolumeUp } from "react-icons/fa"
 import { useSelector,useDispatch } from 'react-redux';
-import {getTrackName,model} from "../../store/tracks/track"
+import {getTrackName,model,calcTarckTime} from "../../store/tracks/track";
+import { useRouter } from 'next/router';
 const Player = () => {
   // state
+ const router = useRouter();
   const track = useSelector((state)=> state.trackPlayer.track);
+  const rangeTime = useSelector((state)=> state.trackPlayer.rangeTime);
+
   const dispatch = useDispatch();
   const [isPlaying, setIsPlaying] = useState(false);
   const [muteStatus, setMuteStatus] = useState(false);
-
   const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
   // references
@@ -50,10 +53,11 @@ const Player = () => {
   }
 
   const whilePlaying = () => {
-   if(track.toString().trim() !== "" && audioPlayer.current != null){
+   if((track.toString().trim() !== "" || router.query.track)&& audioPlayer.current != null){
     progressBar.current.value = audioPlayer.current.currentTime;
     changePlayerCurrentTime();
     animationRef.current = requestAnimationFrame(whilePlaying);
+    dispatch(calcTarckTime(progressBar.current.value))
    }
  
   }
@@ -77,14 +81,22 @@ const Player = () => {
     progressBar.current.value = Number(+progressBar.current.value + 30);
     changeRange();
   }
+ useEffect(()=>{
+   if( rangeTime > -1){
+    progressBar.current.value  = rangeTime;
+    console.log(rangeTime)
+    changeRange();
 
+    
+   }
+ },[rangeTime])
   return (
     <div className={styles.audioPlayer}>
       <audio ref={audioPlayer}
        autoPlay
        onPlay={()=>togglePlayPause()}
        onEnded={()=>dispatch(getTrackName("next"))}
-       src={`/tracks/${track}.mp3`}
+       src={`/tracks/${track.toString().trim() !== ""? track:router.query.track}.mp3`}
       preload="metadata"></audio>
       <button className={`${styles.forwardBackward} ${styles.bg}`} onClick={()=>dispatch(getTrackName("previous"))}><FaFastBackward /></button>
       <button className={styles.forwardBackward} onClick={backThirty}><MdReplay30 /></button>
