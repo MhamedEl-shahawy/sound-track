@@ -115,6 +115,6 @@ export default function Track({comments}){
            comments: trackFilter,
            track:  params.track
       },
-      revalidate: 1
+      revalidate: 30
     }
   }
